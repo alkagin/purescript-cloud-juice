@@ -22,7 +22,7 @@ clear
 
 git checkout master
 git fetch --tags
-currentTag=`git describe --tags --abbrev=0` 
+currentTag=`git describe --tags --abbrev=0`
 
 if [ -z "${currentTag// }" ]; then
   echo "Initial version, defaulting to 0.1.0"
@@ -60,7 +60,7 @@ else
 fi
 
 
-# Weird echoing otherwise git does not 
+# Weird echoing otherwise git does not
 # like spaces in the tag message
 echo "Tagging"
 git tag -a $tagName --file=.release-message
@@ -69,5 +69,3 @@ rm .release-message
 
 echo "Pushing tag"
 git push origin $tagName
-
-pulp publish
